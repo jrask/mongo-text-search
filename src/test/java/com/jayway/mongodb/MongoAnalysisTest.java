@@ -38,7 +38,7 @@ public class MongoAnalysisTest {
 
 		mongo.save(
 				new AnalyzedDBObject(analyzer)
-				.analyzeFullText(INDEXED_FIELD, TEXT)
+				.appendAndAnalyzeFullText(INDEXED_FIELD, TEXT)
 				.append(TEXT_FIELD, TEXT),
 				COLLECTION_NAME);
 		
@@ -58,7 +58,7 @@ public class MongoAnalysisTest {
 
 		mongo.save(
 				new AnalyzedDBObject(analyzer)
-				.analyzeFullText(INDEXED_FIELD, TEXT)
+				.appendAndAnalyzeFullText(INDEXED_FIELD, TEXT)
 				.append(TEXT_FIELD, TEXT),
 				COLLECTION_NAME);
 		

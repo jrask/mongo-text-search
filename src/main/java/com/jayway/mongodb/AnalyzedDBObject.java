@@ -36,7 +36,7 @@ public class AnalyzedDBObject extends BasicDBObject {
 		return this;
 	}
 	
-	public AnalyzedDBObject analyzeFullText(String name, String text)
+	public AnalyzedDBObject appendAndAnalyzeFullText(String name, String text)
 			throws IOException {
 		append(name,
 				tokenize(analyzer.tokenStream(name, new StringReader(text))));
