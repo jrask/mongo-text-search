@@ -38,14 +38,14 @@ public class MongoAnalysisTest {
 
 		mongo.save(
 				new AnalyzedDBObject(analyzer)
-				.indexFullText(INDEXED_FIELD, TEXT)
+				.analyzeFullText(INDEXED_FIELD, TEXT)
 				.append(TEXT_FIELD, TEXT),
 				COLLECTION_NAME);
 		
 		DBObject result = mongo.get(new AnalyzedDBObject(analyzer).createQuery(INDEXED_FIELD,TEXT),COLLECTION_NAME);
 		assertEquals(TEXT, result.get(TEXT_FIELD));
 		
-		result = mongo.get(new AnalyzedDBObject(analyzer).createQuery(INDEXED_FIELD,"MonGoDB sEarch woulD"),COLLECTION_NAME);
+		result = mongo.get(new AnalyzedDBObject(analyzer).createQuery(INDEXED_FIELD,"MonGoDB sEarch woulD TO"),COLLECTION_NAME);
 		assertEquals(TEXT, result.get(TEXT_FIELD));
 		
 		// In this query, only "search" matches
@@ -58,7 +58,7 @@ public class MongoAnalysisTest {
 
 		mongo.save(
 				new AnalyzedDBObject(analyzer)
-				.indexFullText(INDEXED_FIELD, TEXT)
+				.analyzeFullText(INDEXED_FIELD, TEXT)
 				.append(TEXT_FIELD, TEXT),
 				COLLECTION_NAME);
 		

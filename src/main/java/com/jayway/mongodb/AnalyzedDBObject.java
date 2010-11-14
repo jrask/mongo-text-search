@@ -29,13 +29,14 @@ public class AnalyzedDBObject extends BasicDBObject {
 	
 	public AnalyzedDBObject createQuery(String name,String text,Condition condition) throws IOException {
 		List<String> tokens = tokenize(analyzer.tokenStream(name, new StringReader(text)));
+
 		append(name,new BasicDBObject(
 				String.format("$%s",condition.toString().toLowerCase()),
 				tokens.toArray(new String[0])));
 		return this;
 	}
 	
-	public AnalyzedDBObject indexFullText(String name, String text)
+	public AnalyzedDBObject analyzeFullText(String name, String text)
 			throws IOException {
 		append(name,
 				tokenize(analyzer.tokenStream(name, new StringReader(text))));
