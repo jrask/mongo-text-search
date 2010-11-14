@@ -1,0 +1,1 @@
+Shows how to use mongo with lucene analyzers.
